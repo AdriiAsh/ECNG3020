@@ -1,0 +1,13 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.Area {
+    width: 100%;
+  }
+
+  button{
+    margin: 50px;
+}

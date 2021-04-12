@@ -1,0 +1,23 @@
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30%">
+        <mat-toolbar color="primary">Reason for Decline</mat-toolbar>
+        <form [formGroup]="DeclineForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="Signform">
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Leave a comment</mat-label>
+                <textarea formControlName="Comments" matInput placeholder=""></textarea>
+              </mat-form-field>
+
+            <div>
+                <button mat-raised-button color="primary" type="submit" routerLinkActive="active" [routerLink]="'../..'" [disabled]="!DeclineForm.valid" >Ok</button>
+                <button mat-raised-button color="primary" type="button" routerLinkActive="active" [routerLink]="'..'" >Cancel</button>
+              </div>
+        </form>
+    
+    </mat-card>
+    
+    
+    </div>
+    

@@ -1,0 +1,36 @@
+
+<mat-form-field>
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
+</mat-form-field>
+
+ <button class="button" mat-stroked-button color="primary" routerLinkActive="active" [routerLink]="'Event'" *ngIf="EOC_Admin()">Create Task</button>
+ 
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <ng-container matColumnDef="Task_Name">
+      <th mat-header-cell *matHeaderCellDef> Task Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Task_Name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Task_Priority">
+      <th mat-header-cell *matHeaderCellDef>Task Priority </th>
+      <td mat-cell *matCellDef="let element"> {{element.Task_Priority}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Task_Status">
+      <th mat-header-cell *matHeaderCellDef>Task Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.Task_Status}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Date_Task_Began">
+      <th mat-header-cell *matHeaderCellDef>Date Task Began </th>
+      <td mat-cell *matCellDef="let element"> {{element.Date_Task_Began|date}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLinkActive="active" [routerLink]='row._id'></tr>
+  </table>

@@ -1,0 +1,26 @@
+<body style="background-color:	midnightblue;">
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30%">
+        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="loginform">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Email" formControlName="Email">
+                <div class="text-danger" *ngIf="LoginForm.get('Email')!.hasError('required') && LoginForm.get('Email')!.touched">Email is required</div>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" formControlName="Password">
+                <div class="text-danger" *ngIf="LoginForm.get('Password')!.hasError('required') && LoginForm.get('Password')!.touched">Password is required</div>
+            </mat-form-field>
+
+            <div>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!LoginForm.valid">Login</button>
+
+                <button mat-raised-button color="primary" type="button"  routerLinkActive="active" [routerLink]="'../Signup'">Applicant Signup</button>
+              </div>
+        </form>
+    
+    </mat-card>
+    
+    
+    </div>
+</body>

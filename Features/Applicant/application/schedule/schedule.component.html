@@ -1,0 +1,70 @@
+<form [formGroup]="ApplicationForm" (ngSubmit)="onSubmit()" >
+ 
+|<h2 style="text-align:center">Schedule</h2>
+<div formArrayName="Availability" *ngFor="let Availabilities of aliasesArrayControl.controls; let i=index" >
+<div [formGroupName]="i">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Day</mat-label>
+        <mat-select formControlName="Day">
+          <mat-option *ngFor="let day of Day" [value]="day.value" >
+            {{day.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>TimeStart</mat-label>
+        <mat-select formControlName="TimeStart">
+          <mat-option *ngFor="let time of Time" [value]="time.value" >
+            {{time.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>AM PM</mat-label>
+        <mat-select formControlName="AM_PM">
+          <mat-option *ngFor="let AMPMs of AMPM" [value]="AMPMs.value" >
+            {{AMPMs.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+
+      <mat-form-field appearance="fill">
+        <mat-label>TimeEnd</mat-label>
+        <mat-select formControlName="TimeEnd">
+          <mat-option *ngFor="let time of Time" [value]="time.value" >
+            {{time.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>AM PM</mat-label>
+        <mat-select formControlName="AM_PM1">
+          <mat-option *ngFor="let AMPMs of AMPM" [value]="AMPMs.value" >
+            {{AMPMs.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button *ngIf="ApplicationForm.get('Availability').length>1"  mat-raised-button color="primary" type="button" (click)="Delete(i)">Delete</button>    
+
+
+    </div>
+</div>
+<button class="form-group" mat-raised-button color="primary" type="button" (click)="AddAvailabilityButton()"> Add Availability</button>
+
+
+
+  <!-------Submit-------->
+
+    <button class="button5" mat-raised-button color="primary" type="submit" [disabled]="!ApplicationForm.valid">Submit</button>
+
+    <button class="buttons" mat-raised-button color="primary" type="button" routerLinkActive="active" [routerLink]="'..'" >Back</button>
+  
+
+
+    </form>

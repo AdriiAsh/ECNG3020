@@ -1,0 +1,120 @@
+<form [formGroup]="ApplicationForm" (ngSubmit)="onSubmit()" >
+<button class="button" mat-stroked-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back </button>
+
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Day</mat-label>
+  <mat-select formControlName="Day">
+    <mat-option *ngFor="let day of Day" [value]="day.value" >
+      {{day.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field appearance="fill">
+  <mat-label>TimeStart</mat-label>
+  <mat-select formControlName="start">
+    <mat-option *ngFor="let time of Time" [value]="time.value" >
+      {{time.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>AM PM</mat-label>
+  <mat-select formControlName="AM_PM">
+    <mat-option *ngFor="let AMPMs of AMPM" [value]="AMPMs.value" >
+      {{AMPMs.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field appearance="fill">
+  <mat-label>TimeEnd</mat-label>
+  <mat-select formControlName="end">
+    <mat-option *ngFor="let time of Time" [value]="time.value" >
+      {{time.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+
+<mat-form-field appearance="fill">
+  <mat-label>AM PM</mat-label>
+  <mat-select formControlName="AM_PM1">
+    <mat-option *ngFor="let AMPMs of AMPM" [value]="AMPMs.value" >
+      {{AMPMs.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="primary" type="submit" >Search</button>
+<!-----
+<h2 style="text-align:center">Volunteers Availability Times</h2>
+<table style="width:100%" >
+    <tr>
+      <th>Day</th>
+      <th>
+        <p>TimeStart</p>
+      </th>
+      <th>AM PM</th>
+      <th>TimeEnd</th>
+      <th>AM PM</th>
+    </tr>
+    <ng-container *ngFor= "let data of Results" >
+    <tr  *ngFor= "let data1 of data.Availability" routerLinkActive="active" [routerLink]='data._userId'>
+      <td>{{data1.Day}}</td>
+      <td>{{data1.TimeStart}}</td>
+      <td>{{data1.AM_PM}}</td>
+      <td>{{data1.TimeEnd}}</td>
+      <td> {{data1.AM_PM1}}</td>
+    </tr>
+    
+</ng-container>
+  </table>
+--->
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" >
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- Position Column -->
+    <ng-container matColumnDef="Firstname">
+      <th mat-header-cell *matHeaderCellDef> Firstname </th>
+      <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Lastname">
+      <th mat-header-cell *matHeaderCellDef>Lastname</th>
+      <td mat-cell *matCellDef="let element"> {{element.Lastname}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef>Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Gender">
+      <th mat-header-cell *matHeaderCellDef>Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.Gender}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ContactNo1">
+      <th mat-header-cell *matHeaderCellDef>Contact</th>
+      <td mat-cell *matCellDef="let element"> {{element.ContactNo1}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"  routerLinkActive="active" [routerLink]='row._userId'></tr>
+  </table>
+</div>
+
+</form>

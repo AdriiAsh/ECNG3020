@@ -1,0 +1,40 @@
+          <h2>{{Task.Task_Name}}  <a *ngIf="EOC_Admin()"><mat-icon color="primary" matTooltip="Edit" class="icon" routerLinkActive="active" [routerLink]="'Edit'" >mode</mat-icon> <mat-icon matTooltip="Delete" class="delete" (click)=" Delete()">delete </mat-icon ></a></h2>   
+    <table>
+      <tr>
+        <tr>
+       
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Resources</th>
+          <th>Task Began</th>   
+          <th>Description</th> 
+          <th>Volunteers Assigned to:</th> 
+        </tr>
+      <tr>
+       
+        <td> {{Task.Task_Priority}} </td>
+        <td> {{Task.Task_Status}} </td>
+        <td> {{Task.Resources}} </td>
+        <td> {{Task.Date_Task_Began |date}} </td>
+        <td> {{Task.Task_Description}} </td>
+        <td> {{Task.Volunteer_id}} </td>
+
+      </tr>
+      </table>
+
+
+
+  <a class="button1" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+
+  <a class="button1" button mat-stroked-button color="primary" routerLinkActive="active" [routerLink]="'Availability'" *ngIf="EOC_Admin()">Assign</a>
+
+
+
+
+
+
+
+
+
+
+

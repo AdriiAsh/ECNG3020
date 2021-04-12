@@ -1,0 +1,42 @@
+
+    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+      <mat-card fxFlex="30%">
+  <h2 style="text-align:center">Confirm </h2>
+          <div fxLayoutAlign="stretch" fxLayout="column" class="Signform">
+  
+              <div>
+                  <button mat-raised-button color="primary" type="button" (click)="onSubmit()">Create </button>
+                  <button mat-raised-button color="primary" type="button" routerLinkActive="active" [routerLink]="'..'">Cancel</button>
+                </div>  
+      </div>
+      </mat-card>
+      </div>
+  
+
+
+
+
+<!---  
+<div>  {{SignupForm.value|json}}</div>
+  <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()" class="form">
+ <!---    <div>  {{SignupForm.value|json}}</div>
+      <!---  <div>  {{SignupForm.value|json}}</div>
+      <div >
+      <mat-form-field >
+        <input id="Email" type="text" formControlName="Email" matInput placeholder="Email" readonly>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field >
+        <input id="Role" type="text" formControlName="Role" matInput placeholder="Role" readonly>
+      </mat-form-field>
+    </div>
+  
+    
+    <!-------Submit
+  <a class="buttons" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+  <a button mat-raised-button color="primary" (click)="onSubmit()">Create Account</a>
+  </form>
+
+-->

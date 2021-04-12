@@ -1,0 +1,15 @@
+
+<div fxLayoutAlign ="center center" fxFlexFill class ="main div">
+    <mat-card fxFlex="35%">
+
+      <mat-toolbar color="primary" style="text-align:center;">Home Page</mat-toolbar>
+
+      <div>
+        <a button mat-button c routerLinkActive="active" [routerLink]="'Application'">New/Update Application</a>
+    </div>
+
+      <div>
+        <a button mat-button (click)="CheckStatus()">View Application Status</a>
+
+    </div>
+

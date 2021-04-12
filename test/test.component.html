@@ -1,0 +1,29 @@
+
+<p>test works!</p>
+
+<p>
+    Query Parameters passed:{{querycountry}}
+</p>
+<p>
+    Country:{{queryTrending}}
+</p>
+<p>
+    Tag:{{queryTag}}
+</p>
+--->
+
+
+<form [formGroup]="TaskForm" (ngSubmit)="onSubmit()" class="form">
+
+  <div>
+    <mat-form-field >
+      <input id="Day" type="text" formControlName="Day" matInput placeholder="Day">
+     
+    </mat-form-field>
+  </div>
+  
+  
+    <button mat-raised-button color="primary" type="submit">Done</button>
+  
+  <a button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+  </form>

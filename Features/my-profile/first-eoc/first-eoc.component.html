@@ -1,0 +1,79 @@
+<form [formGroup]="EOCForm" (ngSubmit)="onSubmit()" class="form">
+  <!--  <div>  {{EOCForm.value|json}}</div>--->
+  
+    <div >
+    <mat-form-field >
+      <input id="Firstname" type="text" formControlName="Firstname" matInput placeholder="Firstname" >
+      <div class="text-danger" *ngIf="EOCForm.get('Firstname')!.hasError('required') && EOCForm.get('Firstname')!.touched">Firstname is required</div>
+    </mat-form-field>
+  </div>
+  
+  <div>
+    <mat-form-field >
+      <input id="Lastname" type="text" formControlName="Lastname" matInput placeholder="Lastname">
+      <div class="text-danger" *ngIf="EOCForm.get('Lastname')!.hasError('required') && EOCForm.get('Lastname')!.touched">Lastname is required</div>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field >
+      <input id="Address" type="text" formControlName="Address" matInput placeholder="Address">
+      <div class="text-danger" *ngIf="EOCForm.get('Address')!.hasError('required') && EOCForm.get('Address')!.touched">Address is required</div>
+    </mat-form-field>
+  </div>
+
+  <label>
+    <input type="radio" value="Male" formControlName="Gender">
+      <span>male</span>
+  </label>
+  <label>
+    <input type="radio" value="Female" formControlName="Gender">
+      <span>female</span>
+  </label>
+  <div>
+
+
+    <mat-form-field >
+      <input id="ContactNo1" type="text" formControlName="ContactNo1" matInput placeholder="ContactNo1">
+      <div class="text-danger" *ngIf="EOCForm.get('ContactNo1')!.hasError('required') && EOCForm.get('ContactNo1')!.touched">ContactNo1 is required</div>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field >
+      <input id="ContactNo2" type="text" formControlName="ContactNo2" matInput placeholder="ContactNo2">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker3" formControlName="DoB" >
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>    
+  </div>
+
+
+  <div>
+    <mat-form-field >
+      <input id="Email" type="text" formControlName="Email" matInput placeholder="Email">
+      <div class="text-danger" *ngIf="EOCForm.get('Email')!.hasError('required') && EOCForm.get('Email')!.touched">Email is required</div>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field >
+      <input id="Position" type="text" formControlName="Position" matInput placeholder="Position">
+      <div class="text-danger" *ngIf="EOCForm.get('Position')!.hasError('required') && EOCForm.get('Position')!.touched">Position is required</div>
+    </mat-form-field>
+  </div>
+
+  
+
+  <!-------Submit-------->
+  <div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!EOCForm.valid">Done</button>
+  </div>
+
+  </form>

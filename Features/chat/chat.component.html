@@ -1,0 +1,38 @@
+     <!---
+                <label for="username">Enter name to join as</label>
+                <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
+        --->
+            <mat-form-field appearance="outline" [style.width.px]=327 class="inputs">   
+                <input  matInput placeholder="Enter your name" type="text" [(ngModel)]="user">
+                </mat-form-field>  
+                <button mat-raised-button color="primary" type="button" (click)="join()">join</button>
+            <!---- 
+            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
+                <option value="Volunteer Coordination">Volunteer Coordination room</option>
+            </select>
+            -->            
+            <!---    <button type="button" class="btn btn-default" (click)="leave()">Leave</button>
+             <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+            -->      
+    <div>
+        <div>
+            <div *ngFor="let item of messageArray">
+                <mat-list>
+                    <mat-list-item>            <span><strong>{{item.user}}({{item.Role}}):
+                     </strong> {{item.message}} </span>  
+                    </mat-list-item>
+                    <small style="float: right;">{{item.Time| date:'M/d/yy, h:mm a'}}</small>
+                    <mat-divider></mat-divider>
+                  </mat-list>
+            </div> 
+        </div>
+    </div>
+    <div > 
+<div>
+        <mat-form-field class="inputs" appearance="outline" [style.width.px]=1100 color="accent">   
+            <input  matInput placeholder="Enter text" type="text" [(ngModel)]="messageText">
+            </mat-form-field>   
+            
+            <button class="buttons" mat-raised-button color="primary" type="button" (click)="sendMessage()">Send</button>
+        </div>   
+    </div>

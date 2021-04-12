@@ -1,0 +1,68 @@
+<div>
+    Application #:  {{Application._id}}
+</div>
+<div>
+    Firstname:  {{Application.Firstname}}
+</div>
+<div>
+    Lastname:  {{Application.Lastname}}
+</div>
+<div>
+    Home_Address:  {{Application.Home_Address}}
+</div>
+<div>
+    Gendere:  {{Application.Gender}}
+</div>
+<div>
+    DoB:  {{Application.DoB|date}}
+</div>
+<div>
+    ContactNo1:  {{Application.ContactNo1}}
+</div>
+<div>
+    ContactNo2:  {{Application.ContactNo2}}
+</div>
+<div>
+    Email:  {{Application.Email}}
+</div>
+
+
+
+
+
+
+<div *ngFor= "let b of Results1;let i=index ">
+    Picture{{i+1}}:
+    <a href="http://localhost:4000/Picture/{{b.filename}}">{{b.filename}}</a>  
+</div>
+
+
+
+
+<h2>Skills</h2>
+
+<div *ngFor= "let c of Skill">
+<div>
+<a >Applicant_Type: {{c.Applicant_Type}}
+Equipments_Owned: {{c.Equipments_Owned}}</a> 
+</div>
+</div>
+
+
+
+<h2>Availability</h2>
+<div *ngFor= "let a of Availability">
+    <div>
+Day: {{a.Day}} 
+</div>
+From:    {{a.TimeStart}} {{a.AM_PM}} 
+ to   {{a.TimeEnd}} {{a.AM_PM1}} 
+</div>
+
+
+
+
+<a class="buttons" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+<button class="buttons" mat-raised-button color="primary" (click)="Accept()">Accept</button>
+<!---<button class="buttons" mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'Decline'">Decline</button>-->
+  

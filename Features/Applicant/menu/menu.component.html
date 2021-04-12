@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="navbar">
+    <div>Volunteer Coordination Tool</div>
+
+<div>
+    
+    <span  style="cursor:pointer" routerLinkActive="active" [routerLink]="'HomePage'">Home</span>
+    <span  style="cursor:pointer" *ngIf="AuthenticationService.loggedIn" (click)="AuthenticationService.Logout()">Logout</span>
+
+</div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
+
+

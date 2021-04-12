@@ -1,0 +1,99 @@
+<form [formGroup]="ApplicationForm" (ngSubmit)="onSubmit()" >
+  <h2  style="text-align:center">Update Profile</h2>
+    <div >
+    <mat-form-field appearance="outline" class="inputs" [style.width.px]=327 >
+      <input id="Firstname" type="text" formControlName="Firstname" matInput placeholder="Firstname" >
+      <div class="text-danger" *ngIf="ApplicationForm.get('Firstname')!.hasError('required') && ApplicationForm.get('Firstname')!.touched">Firstname is required</div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" [style.width.px]=327 >
+      <input id="Lastname" type="text" formControlName="Lastname" matInput placeholder="Lastname">
+      <div class="text-danger" *ngIf="ApplicationForm.get('Lastname')!.hasError('required') && ApplicationForm.get('Lastname')!.touched">Lastname is required</div>
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="outline" [style.width.px]=327  >
+      <input id="Home_Address" type="text" formControlName="Home_Address" matInput placeholder="Home_Address">
+      <div class="text-danger" *ngIf="ApplicationForm.get('Home_Address')!.hasError('required') && ApplicationForm.get('Home_Address')!.touched">Home_Address is required</div>
+    </mat-form-field>
+  </div>
+  
+    <label>
+      <input type="radio" value="Male" formControlName="Gender">
+        <span>male</span>
+    </label>
+    <label>
+      <input type="radio" value="Female" formControlName="Gender">
+        <span>female</span>
+    </label>
+  
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker3" formControlName="DoB" >
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>    
+    </div>
+  
+    <div  >
+        <mat-form-field  appearance="outline" [style.width.px]=327 class="inputs">
+          <input id="ContactNo1" type="text" formControlName="ContactNo1" matInput placeholder="ContactNo1">
+          <div class="text-danger" *ngIf="ApplicationForm.get('ContactNo1')!.hasError('required') && ApplicationForm.get('ContactNo1')!.touched">ContactNo1 is required</div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.px]=327>
+          <input id="ContactNo2" type="text" formControlName="ContactNo2" matInput placeholder="ContactNo2">
+          <div class="text-danger" *ngIf="ApplicationForm.get('ContactNo2')!.hasError('required') && ApplicationForm.get('ContactNo2')!.touched">Email is required</div>
+        </mat-form-field>
+      </div>
+  
+
+<div>
+  <!----
+  <h3>Upload Credentials here</h3>
+<button type="button" mat-raised-button color="primary" (click)=" AddskillsButton()"  >Click to Add Skills</button>
+-->
+
+<div formArrayName="Skill" *ngFor="let Skills of aliasesArrayControl.controls; let k=index" >
+  <div [formGroupName]="k">
+       
+   
+
+    <mat-form-field appearance="outline" [style.width.px]=327 class="inputs">   
+    <input  matInput placeholder="Applicant_Type" type="text" formControlName=Applicant_Type readonly>
+    </mat-form-field>  
+    
+    <mat-form-field appearance="outline" [style.width.px]=327 class="inputs">   
+      <input  matInput placeholder="Equipments_Owned Example('Truck, Radios etc')" type="text" formControlName=Equipments_Owned readonly>
+      </mat-form-field>   
+
+      <!----
+      <input type="file" (change)="onFileSelected($event)">
+    
+      <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>
+  --->
+
+      <button *ngIf="ApplicationForm.get('Skill').length>1" class="buttons" mat-raised-button color="primary" type="button" (click)="Delete(k)">Delete</button>        
+    </div>
+
+  </div>
+</div>
+
+
+
+<!----<button type="button" (click)="onUpload()">Upload</button>
+
+    <h1>File upload</h1>
+<input type="file" (change)="onFileSelected($event)">
+  --->
+  
+  <!-------Submit-------->
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!ApplicationForm.valid">Save & Next</button>
+  
+
+  <a class="button1" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+  </form>

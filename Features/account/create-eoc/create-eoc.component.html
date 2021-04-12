@@ -1,0 +1,35 @@
+<div>
+  <button class="button" mat-stroked-button color="primary" routerLinkActive="active" [routerLink]="'../CreateVolunteer'">Create Volunteer</button>
+ </div>
+<form [formGroup]="SignupForm" (ngSubmit)="onSubmit()" class="form">
+  <!---  <div>  {{SignupForm.value|json}}</div>-->
+  
+    <div >
+    <mat-form-field >
+      <input id="Email" type="text" formControlName="Email" matInput placeholder="Email" >
+    </mat-form-field>
+  </div>
+  
+  <div>
+    <mat-form-field >
+      <input id="Password" type="password" formControlName="Password" matInput placeholder="Password" readonly>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="Role">
+      <mat-option *ngFor="let role of Role" [value]="role.value" >
+        {{role.viewValue}}
+      </mat-option>
+      <div class="text-danger" *ngIf="SignupForm.get('Role')!.hasError('required') && SignupForm.get('Role')!.touched">Role is required</div>
+    </mat-select>
+  </mat-form-field>
+  
+  <!-------Submit-------->
+  <div>
+  <a button mat-raised-button color="primary" type="button" routerLinkActive="active" [routerLink]="'..'">Back</a>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!SignupForm.valid">Create Account</button>
+</div>  
+</form>
+

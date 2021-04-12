@@ -1,0 +1,12 @@
+h1 {
+    color: red;
+}
+
+.buttons{
+    height:50px !important;
+    width:120px !important;
+}
+
+.inputs{
+    margin-bottom: 10px;
+}

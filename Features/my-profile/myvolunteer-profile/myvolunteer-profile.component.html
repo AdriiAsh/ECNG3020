@@ -1,0 +1,26 @@
+<mat-card>
+    <div>
+        <a class="button" button mat-raised-button color="primary" (click)="Edit()">Edit</a>
+    </div>
+
+    <a style = "position:relative; left:1000px; top:2px;" mat-stroked-button color="primary"  routerLinkActive="active" [routerLink]="'Reapply'">Re-apply for Applicant_Type</a>
+ <div fxLayoutAlign ="center center">
+ <img src="http://localhost:4000/Profile/Profile.PNG" class="card">
+</div> 
+
+<div class="text">
+<mat-card-title >{{Profile.Firstname}} {{Profile.Lastname}} </mat-card-title>
+<mat-card-subtitle >{{Profile.Gender}} </mat-card-subtitle>
+<mat-card-subtitle >{{Profile.Home_Address}} </mat-card-subtitle>
+<mat-card-subtitle >{{Profile.ContactNo1}} {{Profile.ContactNo2}}</mat-card-subtitle>
+<mat-card-subtitle >{{Profile.Email}}</mat-card-subtitle>
+
+<div *ngFor= "let data of Profile.Skill">
+    <mat-card-subtitle >Skill: {{data.Applicant_Type}}</mat-card-subtitle>
+    <mat-card-subtitle >Equipments Owned: {{data.Equipments_Owned}}</mat-card-subtitle>
+</div>
+
+</div>
+
+</mat-card>
+

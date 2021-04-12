@@ -1,0 +1,26 @@
+<h2>{{Event.Event_Name}}  <mat-icon color="primary" matTooltip="Edit" class="icon" routerLinkActive="active" [routerLink]="'Edit'" >mode</mat-icon> <mat-icon matTooltip="Delete" class="delete" routerLinkActive="active" [routerLink]="'Delete'" >delete </mat-icon ></h2>   
+
+<table>
+  <tr>
+    <tr>
+      <th>No#</th>
+      <th>Event Name</th>
+      <th>Event Type</th>
+      <th> Event Location</th>   
+      <th>Event Date</th>  
+      <th>Event Description</th>
+    </tr>
+  <tr>
+    <td> {{Event._id}} </td>
+    <td> {{Event.Event_Name}} </td>
+    <td> {{Event.Event_Type}} </td>
+    <td> {{Event.Event_Location}} </td>
+    <td> {{Event.Event_Date|date}} </td>
+    <td> {{Event.Event_Description}} </td>
+  </tr>
+  </table>
+
+
+<div>
+  <a class ="button1" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+</div>

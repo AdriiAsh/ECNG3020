@@ -1,0 +1,31 @@
+tr { display: block; float: left; }
+th, td { display: block; 
+  border: 1px solid #dddddd;
+  text-align: left;
+ 
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+  .button1{
+    margin: 20px;
+}
+
+.delete{
+  color:red;
+  cursor:pointer; 
+  margin: 5px;
+}
+
+.icon{
+  cursor:pointer; 
+  margin: 5px;
+
+}
+
+

@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+  }
+
+.button{
+
+    float: right;
+    text-align: center;
+}
+
+.delete{
+  color:red;
+  cursor:pointer; 
+  margin: 5px;
+}
+
+.icon{
+  cursor:pointer; 
+  margin: 5px;
+  color:black ; 
+
+}
+
+
+
+

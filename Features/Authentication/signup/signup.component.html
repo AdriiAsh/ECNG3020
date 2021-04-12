@@ -1,0 +1,33 @@
+<body style="background-color:	midnightblue;">
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+<mat-card fxFlex="30%">
+    <mat-toolbar color="primary">Signup Page</mat-toolbar>
+    <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="Signform">
+        <mat-form-field>
+            <input matInput type="email" placeholder="Email" formControlName="email" >
+            <div class="text-danger" *ngIf="SignupForm.get('email')!.hasError('required') && SignupForm.get('email')!.touched">Email is required</div>
+            <div class="text-danger" *ngIf="SignupForm.get('email')!.hasError('email')">Please enter a valid email address</div>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="Password">
+            <div class="text-danger" *ngIf="SignupForm.get('Password')!.hasError('required') && SignupForm.get('Password')!.touched">Password is required</div>
+            <div class="text-danger" *ngIf="SignupForm.get('Password')!.hasError('minlength')">Password is should be more than 6 characters</div>
+        </mat-form-field>
+  
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="ConfirmPassword">
+       <small class="text-danger" *ngIf="SignupForm.errors?.misMatch">Password do not match</small>
+        </mat-form-field>
+
+        <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!SignupForm.valid" >Signup </button>
+            <button mat-raised-button color="primary" type="button" routerLinkActive="active" [routerLink]="'..'">Login Page</button>
+          </div>
+    </form>
+
+</mat-card>
+
+
+</div>
+</body>

@@ -1,0 +1,41 @@
+<form [formGroup]="ApplicationForm" (ngSubmit)="onSubmit()" >
+    <h2  style="text-align:center">Application Form</h2>
+
+
+  <div>
+    <h3>Upload Credentials here</h3>
+  <button type="button" mat-raised-button color="primary" (click)=" AddskillsButton()"  >Click to Add Skills</button>
+  
+  <div formArrayName="Skill" *ngFor="let Skills of aliasesArrayControl.controls let k=index" >
+    <div [formGroupName]="k">
+         
+     
+  
+      <mat-form-field appearance="outline" [style.width.px]=327 class="inputs">   
+      <input class="inputs" matInput placeholder="Applicant_Type" type="text" formControlName=Applicant_Type >
+      </mat-form-field>  
+      
+      <mat-form-field appearance="outline" [style.width.px]=327 class="inputs">   
+        <input class="inputs" matInput placeholder="Equipments_Owned Example('Truck, Radios etc')" type="text" formControlName=Equipments_Owned>
+        </mat-form-field>   
+  
+        <input class="inputs" type="file" (change)="onFileSelected($event)">
+      
+        <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>
+    
+  
+        <button *ngIf="ApplicationForm.get('Skill').length>1" class="buttons" mat-raised-button color="primary" type="button" (click)="Delete(k)">Delete</button>        
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+    <!-------Submit-------->
+    
+      <button mat-raised-button color="primary" type="submit" [disabled]="!ApplicationForm.valid">Save & Upload</button>
+    
+  
+    <a class="button1" button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Cancel</a>
+    </form>

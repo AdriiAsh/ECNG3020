@@ -1,0 +1,49 @@
+<form [formGroup]="TaskForm" (ngSubmit)="onSubmit()" class="form">
+
+  <div >
+  <mat-form-field >
+    <input id="Task_Name" type="text" formControlName="Task_Name" matInput placeholder="Name" >
+    <div class="text-danger" *ngIf="TaskForm.get('Task_Name')!.hasError('required') && TaskForm.get('Task_Name')!.touched">Name is required</div>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field >
+    <input id="Task_Location" type="text" formControlName="Task_Location" matInput placeholder="Location">
+    <div class="text-danger" *ngIf="TaskForm.get('Task_Location')!.hasError('required') && TaskForm.get('Task_Location')!.touched">Location is required</div>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field >
+    <input id="Resources" type="text" formControlName="Resources" matInput placeholder="Resources Needed">
+    <div class="text-danger" *ngIf="TaskForm.get('Resources')!.hasError('required') && TaskForm.get('Resources')!.touched">Resources is required</div>
+  </mat-form-field>
+</div>
+
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Priority</mat-label>
+  <mat-select formControlName="Task_Priority">
+    <mat-option *ngFor="let Priority of Priorities" [value]="Priority.value" >
+      {{Priority.viewValue}}
+    </mat-option>
+    <div class="text-danger" *ngIf="TaskForm.get('Task_Priority')!.hasError('required') && TaskForm.get('Task_Priority')!.touched">Task Description is required</div>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field class="Area">
+  <mat-label>TaskPriority</mat-label>
+  <textarea matInput placeholder="Description" id="Task_Description" type="text" formControlName="Task_Description"></textarea>
+  <div class="text-danger" *ngIf="TaskForm.get('Task_Description')!.hasError('required') && TaskForm.get('Task_Description')!.touched">Task Description is required</div>
+  <div class="text-danger" *ngIf="TaskForm.get('Task_Description')!.hasError('maxlength') && TaskForm.get('Task_Description')!.touched">Task Description needs to be 150 letters max</div>
+</mat-form-field>
+
+
+<!-------Submit-------->
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!TaskForm.valid">Done</button>
+
+<a button mat-raised-button color="primary" routerLinkActive="active" [routerLink]="'..'">Back</a>
+</form>

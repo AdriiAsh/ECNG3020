@@ -1,0 +1,25 @@
+<mat-card>
+    <a class="button" button mat-raised-button color="primary" (click)="Edit()">Edit</a>
+
+   
+ <div fxLayoutAlign ="center center">
+ <img src="http://localhost:4000/Profile/Profile.PNG" class="card">
+</div> 
+
+<div class="text">
+<mat-card-title >{{Profile.Firstname}} {{Profile.Lastname}} </mat-card-title>
+
+<mat-card-subtitle >{{Profile.Address}} </mat-card-subtitle>
+<mat-card-subtitle >{{Profile.Gender}} </mat-card-subtitle>
+<mat-card-subtitle >Contact#1: {{Profile.ContactNo1}}</mat-card-subtitle>
+<mat-card-subtitle >Contact#2: {{Profile.ContactNo2}}</mat-card-subtitle>
+<mat-card-subtitle >{{Profile.Email}}</mat-card-subtitle>
+<mat-card-subtitle >{{Profile.Position}} </mat-card-subtitle>
+
+
+</div>
+
+
+</mat-card>
+
+
